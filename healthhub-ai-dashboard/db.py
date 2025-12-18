@@ -6,10 +6,10 @@ def get_db_connection():
     connection = None
     try:
         connection = mysql.connector.connect(
-            host='127.0.0.1',
+            host='localhost',
             user='root',
-            password='1234',
-            database='aiProject1'
+            password='123',
+            database='test'
         )
         if connection.is_connected():
             return connection
