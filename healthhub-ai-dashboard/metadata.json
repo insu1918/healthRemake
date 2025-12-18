@@ -1,0 +1,7 @@
+{
+  "name": "HealthHub AI Dashboard",
+  "description": "A comprehensive AI-powered health management dashboard for tracking weight, BMI, workouts, nutrition, and vital signs with personalized insights.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
