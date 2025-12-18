@@ -1,23 +1,22 @@
 import pymysql
 from pymysql import Error
 
-class Database:
-    def __init__(self):
-        self.connection = None
-        try:
-            self.connection = pymysql.connect(
-                host='localhost',
-                # host='svc.sel5.cloudtype.app',
-                # port=31484,
-                database='test1',  # test 데이터베이스 사용
-                user='root',
-                password='1234',  # mariadb 설치 당시의 패스워드, 실제 환경에서는 보안을 위해 환경변수 등을 사용
-                charset='utf8mb4',
-                cursorclass=pymysql.cursors.DictCursor   # 쿼리 결과를 딕셔너리로 변환
-            )
-            print("MariaDB에 성공적으로 연결되었습니다.")
-        except Error as e:
-            print(f"MariaDB 연결 중 오류 발생: {e}")
+
+def get_db_connection():
+    """Establishes and returns a connection to the database."""
+    connection = None
+    try:
+        connection = mysql.connector.connect(
+            host='localhost',
+            user='root',
+            password='123',
+            database='test'
+        )
+        if connection.is_connected():
+            return connection
+    except Error as e:
+        print(f"Error while connecting to MySQL: {e}")
+        return None
 
     def save_bmi_record(self, weight, height, bmi, category):
         """BMI 기록을 데이터베이스에 저장"""
